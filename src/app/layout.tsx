@@ -20,7 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${MPLUS1.variable} antialiased`}>{children}</body>
+      <body
+        className={`${MPLUS1.variable} antialiased dark`}
+        style={{
+          marginRight: "0px !important",
+          // @ts-ignore
+          position: "initial !important",
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

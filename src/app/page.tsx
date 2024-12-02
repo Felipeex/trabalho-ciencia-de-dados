@@ -1,6 +1,19 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -15,10 +28,34 @@ export default function Home() {
               gratificantes. Peça o seu agora mesmo através do nosso sistema de
               aprovação automática.
             </p>
-            <button className="bg-[#2BB32A] hover:bg-[#1e801e] transition-colors px-8 py-4 rounded-[64px] flex gap-4 text-base font-medium">
-              Perdir meu cartão
-              <ArrowRight />
-            </button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <button className="bg-[#2BB32A] hover:bg-[#26a126] transition-colors px-8 py-4 rounded-[64px] flex gap-4 text-base font-medium">
+                  Perdir meu cartão
+                  <ArrowRight />
+                </button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    Confirme sua Elegibilidade para o Cartão
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Precisamos fazer algumas perguntas para confirmar se você
+                    atende aos requisitos para o cartão de crédito
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Voltar</AlertDialogCancel>
+                  <AlertDialogAction
+                    className="bg-[#31CD63] hover:bg-[#2dbb5a] text-white"
+                    asChild
+                  >
+                    <Link href="/quiz">Ok, vamos lá</Link>
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
             <Image
               src="./home-stats.svg"
               width={349}
