@@ -15,7 +15,7 @@ export default function Home() {
               gratificantes. Peça o seu agora mesmo através do nosso sistema de
               aprovação automática.
             </p>
-            <button className="bg-[#2BB32A] px-8 py-4 rounded-[64px] flex gap-4 text-base font-medium">
+            <button className="bg-[#2BB32A] hover:bg-[#1e801e] transition-colors px-8 py-4 rounded-[64px] flex gap-4 text-base font-medium">
               Perdir meu cartão
               <ArrowRight />
             </button>
