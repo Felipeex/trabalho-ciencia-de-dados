@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <main className="max-w-7xl m-auto">
-        <section className="flex gap-8">
-          <div className="flex flex-col items-start gap-8">
+        <section className="mt-36 flex gap-8 justify-center">
+          <div className="max-w-[604px] flex flex-col items-start gap-8">
             <h1 className="text-[56px] leading-[64px] tracking-[-2.5%] font-bold">
               Descubra o cartão de crédito perfeito para você
             </h1>
@@ -27,12 +27,16 @@ export default function Home() {
             />
           </div>
 
-          <Image
-            src="./home-card.svg"
-            width={536.78}
-            height={339.96}
-            alt="Card Image"
-          />
+          <div className="relative">
+            <Image
+              src="./home-card.svg"
+              width={536.78}
+              height={339.96}
+              alt="Card Image"
+              className="self-start"
+            />
+            <div className="absolute top-[5%] left-[40%] w-[492px] h-[492px] bg-[#2BB32A] rounded-full -z-10" />
+          </div>
         </section>
       </main>
 
@@ -43,6 +47,32 @@ export default function Home() {
         alt="Line Decoration"
         className="absolute top-[-1px] left-1/2 transform -translate-x-1/2 -z-10"
       />
+
+      <Image
+        src="./home-star-decoration.svg"
+        width={47}
+        height={47}
+        alt="Line Decoration"
+        className="absolute top-[120px] left-[65%] -z-10"
+      />
+
+      <Image
+        src="./home-star-decoration.svg"
+        width={47}
+        height={47}
+        alt="Line Decoration"
+        className="absolute top-1/2 left-1/2 -z-10 rotate-6"
+      />
+
+      <Image
+        src="./home-star-decoration.svg"
+        width={47}
+        height={47}
+        alt="Line Decoration"
+        className="absolute top-[70%] left-[25%] scale-50 rotate-45 -z-10"
+      />
+
+      <div className="absolute w-[492px] h-[492px] bg-[#2BB32A] rounded-full top-[-30%] left-[60%] transform -translate-x-[60%] -z-10 blur-[400px]" />
     </>
   );
 }
