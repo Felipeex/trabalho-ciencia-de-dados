@@ -106,7 +106,7 @@ export default function Home() {
         width={47}
         height={47}
         alt="Line Decoration"
-        className="absolute top-[70%] left-[25%] scale-50 rotate-45 -z-10"
+        className="absolute top-[70%] left-[35%] scale-50 rotate-45 -z-10"
       />
 
       <div className="absolute w-[492px] h-[492px] bg-[#2BB32A] rounded-full top-[-30%] left-[60%] transform -translate-x-[60%] -z-10 blur-[400px]" />
