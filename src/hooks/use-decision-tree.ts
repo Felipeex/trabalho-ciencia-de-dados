@@ -1,27 +1,32 @@
 import { DecisionTree } from "@/entities/decision-tree";
 import { Node } from "@/entities/node";
 import { Leaf } from "@/entities/leaf";
+import { currentNode } from "@/entities/types";
+import React, { useEffect } from "react";
 
-export function useDecisionTree(): DecisionTree {
-  const tree = new DecisionTree();
+export function useDecisionTree(): [DecisionTree, currentNode] {
+  const [currentNode, setCurrentNode] = React.useState<currentNode>(null);
+  const [tree] = React.useState(new DecisionTree(setCurrentNode));
 
-  // Nós de moradia
-  const housingTypeUnderDays = createHousingNode();
-  const housingTypeOverDays = createHousingNode();
+  useEffect(() => {
+    // Nós de moradia
+    const housingTypeUnderDays = createHousingNode();
+    const housingTypeOverDays = createHousingNode();
 
-  const employedDaysNode = setupEmployedDaysNode(
-    housingTypeUnderDays,
-    housingTypeOverDays
-  );
+    const employedDaysNode = setupEmployedDaysNode(
+      housingTypeUnderDays,
+      housingTypeOverDays
+    );
 
-  const isEmployedNode = setupIsEmployedNode(
-    employedDaysNode,
-    housingTypeUnderDays
-  );
+    const isEmployedNode = setupIsEmployedNode(
+      employedDaysNode,
+      housingTypeUnderDays
+    );
 
-  tree.addCurrentNode(isEmployedNode);
+    tree.addCurrentNode(isEmployedNode);
+  }, []);
 
-  return tree;
+  return [tree, currentNode];
 }
 
 function createHousingNode(): Node {

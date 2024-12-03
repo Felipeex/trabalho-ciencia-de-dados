@@ -11,12 +11,16 @@ export interface DecisionTreeProps {
 }
 
 export class DecisionTree implements DecisionTreeProps {
-  private currentNode: currentNode = null;
+  currentNode: currentNode = null;
+  setCurrentNode: (newState: currentNode) => void;
 
-  constructor() {}
+  constructor(setCurrentNode: (newState: currentNode) => void) {
+    this.setCurrentNode = setCurrentNode;
+  }
 
   addCurrentNode(node: NodeProps): void {
     this.currentNode = node;
+    this.setCurrentNode(node);
   }
 
   currentNodeFinished() {
@@ -51,15 +55,13 @@ export class DecisionTree implements DecisionTreeProps {
 
   move(response: string) {
     if (this.currentNode instanceof Node) {
-      /* console.log(this.currentNode); */
       const child = this.currentNode.children.find((child) => {
-        /* console.log(child.response, response); */
         return child.response === response;
       });
 
       if (child) {
-        console.log(child.next);
         this.currentNode = child.next;
+        this.setCurrentNode(child.next);
 
         return;
       }
