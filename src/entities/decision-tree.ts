@@ -53,6 +53,14 @@ export class DecisionTree implements DecisionTreeProps {
     return null;
   }
 
+  getBinaryFinalResult() {
+    if (this.currentNode instanceof Leaf) {
+      return this.currentNode.binaryResponse;
+    }
+
+    return null;
+  }
+
   move(response: string) {
     if (this.currentNode instanceof Node) {
       const child = this.currentNode.children.find((child) => {
