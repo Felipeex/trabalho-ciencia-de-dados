@@ -14,16 +14,16 @@ export default function Quiz() {
   const [tree] = useDecisionTree();
   const router = useRouter();
 
-  if (tree.currentNodeFinished()) {
-    if (tree.getBinaryFinalResult()) {
-      return <h1>Aprovado</h1>;
-    }
-
-    router.push("/reproved");
-  }
-
   function handleChooseAnswer(answer: string) {
     tree.move(answer);
+
+    if (tree.currentNodeFinished()) {
+      if (tree.getBinaryFinalResult()) {
+        router.push("/loading?result=01000001");
+      }
+
+      router.push("/loading?result=01010010");
+    }
   }
 
   return (
