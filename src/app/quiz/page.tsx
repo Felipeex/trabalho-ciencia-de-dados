@@ -19,7 +19,7 @@ export default function Quiz() {
       return <h1>Aprovado</h1>;
     }
 
-    return <h1>Reprovado</h1>;
+    router.push("/reproved");
   }
 
   function handleChooseAnswer(answer: string) {
@@ -28,11 +28,9 @@ export default function Quiz() {
 
   return (
     <>
-      <h1 className="font-bold text-3xl mt-8 absolute left-1/2 transform -translate-x-1/2">
-        Hype Bank
-      </h1>
+      <h1 className="font-bold text-3xl m-8 absolute">Hype Bank</h1>
 
-      <h2 className="font-normal text-2xl mt-24 absolute left-1/2 transform -translate-x-1/2">
+      <h2 className="font-normal text-2xl mt-16 absolute left-1/2 transform -translate-x-1/2">
         {tree.getCurrectNodeQuestion()}
       </h2>
 
@@ -47,9 +45,9 @@ export default function Quiz() {
           <button
             key={key}
             onClick={() => handleChooseAnswer(response)}
-            className="w-[500px] bg-[#252A28] flex py-4 px-6 rounded-[8px] items-center gap-6"
+            className="group w-[500px] bg-[#252A28] flex py-4 px-6 rounded-[8px] items-center gap-6 hover:bg-[#2BB32A] transition-colors"
           >
-            <div className="text-xl bg-[#202422] px-5 py-3 rounded-full">
+            <div className="text-xl bg-[#202422] px-5 py-3 rounded-full group-hover:bg-white group-hover:text-black transition-colors">
               {alphabet[key]}
             </div>
             <span className="font-normal text-xl">{response}</span>
