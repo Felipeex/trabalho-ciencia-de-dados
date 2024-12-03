@@ -31,7 +31,7 @@ export default function Home() {
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <button className="bg-[#2BB32A] hover:bg-[#26a126] transition-colors px-8 py-4 rounded-[64px] flex gap-4 text-base font-medium">
-                  Perdir meu cartão
+                  Pedir meu cartão
                   <ArrowRight />
                 </button>
               </AlertDialogTrigger>
