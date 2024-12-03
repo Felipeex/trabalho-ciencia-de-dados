@@ -39,7 +39,7 @@ function createHousingNode(): Node {
 
   housing.addChild({
     response: "Casa ou apartamento próprio",
-    next: housing,
+    next: new Leaf(true),
   });
 
   housing.addChild({

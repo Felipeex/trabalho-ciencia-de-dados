@@ -11,10 +11,9 @@ export default function Loading() {
 
   React.useEffect(() => {
     const result = params.get("result");
-    console.log(result);
 
     setTimeout(() => {
-      if (result?.includes("01000001")) {
+      if (result === "01000001") {
         router.push("/approved");
       } else {
         router.push("/reproved");

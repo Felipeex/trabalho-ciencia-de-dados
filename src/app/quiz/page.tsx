@@ -18,8 +18,9 @@ export default function Quiz() {
     tree.move(answer);
 
     if (tree.currentNodeFinished()) {
+      console.log(tree.getBinaryFinalResult());
       if (tree.getBinaryFinalResult()) {
-        router.push("/loading?result=01000001");
+        return router.push("/loading?result=01000001");
       }
 
       router.push("/loading?result=01010010");

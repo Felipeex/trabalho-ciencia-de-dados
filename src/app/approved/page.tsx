@@ -1,8 +1,18 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import JSConfetti from "js-confetti";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import React from "react";
 
 export default function Approved() {
+  React.useEffect(() => {
+    const jsConfetti = new JSConfetti();
+
+    jsConfetti.addConfetti({ emojis: ["💳"] });
+  }, []);
+
   return (
     <main className="flex flex-col items-center justify-center h-screen">
       <div className="bg-green-400 p-5 rounded-full">
